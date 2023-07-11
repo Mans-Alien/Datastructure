@@ -71,9 +71,24 @@ class doubly_linked_list:
 					break
 				elif current.data != element:
 					current = current.next
-				
+
+	def pop_begin(self):
+		if self.head is None:
+			return
+		else:
+			print(self.head.data ,"is removed")
+			self.head = self.head.next
 
 
+	def pop_end(self):
+		if self.head is None:
+			return
+		else:
+			current = self.head
+			while current.next.next:
+				current = current.next
+			print(current.next.data)
+			current.next = None
 
 
 	def display(self):
@@ -92,4 +107,5 @@ l1.add_begin(0)
 l1.add_end(20)
 l1.add_after("x", 10)
 l1.add_befor("y", 10)
+l1.pop_end()
 l1.display()
