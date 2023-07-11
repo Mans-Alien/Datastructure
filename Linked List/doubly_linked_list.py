@@ -48,8 +48,10 @@ class doubly_linked_list:
 					print("The element is not found")
 				if current.data == element:
 					new_node.next = current.next
+					current.next.pre = new_node
 					new_node.pre = current
 					current.next = new_node
+
 					break
 				elif current.data != element:
 					current = current.next
@@ -78,6 +80,7 @@ class doubly_linked_list:
 		else:
 			print(self.head.data ,"is removed")
 			self.head = self.head.next
+			self.head.pre = None
 
 
 	def pop_end(self):
@@ -101,7 +104,7 @@ class doubly_linked_list:
 				current = current.next
 			else:
 				current.next = current.next.next
-				print(current.data)
+				current.next.pre = current
 
 
 	def display(self):
@@ -112,6 +115,19 @@ class doubly_linked_list:
 			while current is not None:
 				print(current.data, end=" --> ")
 				current = current.next
+			print()
+
+	def display_rev(self):
+		if self.head is None:
+			print("linked list is empty!")
+		else:
+			current = self.head
+			while current.next:
+				current = current.next
+			while current:
+				print(current.data, end = " -->")
+				current = current.pre
+			print()
 
 
 l1 = doubly_linked_list()
@@ -120,5 +136,7 @@ l1.add_begin(0)
 l1.add_end(20)
 l1.add_after("x", 10)
 l1.add_befor("y", 10)
-l1.remove(10)
+# l1.pop_begin()
+# l1.remove(10)
 l1.display()
+l1.display_rev()
