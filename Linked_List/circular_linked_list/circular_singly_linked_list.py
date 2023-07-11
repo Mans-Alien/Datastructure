@@ -13,7 +13,6 @@ class CSLL:
 		if self.head is None:
 			self.head = new_node
 			new_node.next = self.head
-			print(new_node.next.data)
 		else:
 			current = self.head
 			while current.next != self.head:
@@ -22,7 +21,18 @@ class CSLL:
 			self.head = new_node
 			current.next = self.head
 
-			
+	def add_end(self, data):
+		new_node = Node(data)
+		if self.head is None:
+			self.head = new_node
+			new_node.next = self.head
+		else:
+			current = self.head
+			while current.next != self.head:
+				current = current.next
+			current.next = new_node
+			new_node.next = self.head
+
 
 	def display(self):
 		current = self.head
@@ -37,5 +47,5 @@ class CSLL:
 c1 = CSLL()
 c1.add_begin(10)
 c1.add_begin(0)
-c1.add_begin(-10)
+c1.add_end(20)
 c1.display()
