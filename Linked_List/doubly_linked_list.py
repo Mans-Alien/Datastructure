@@ -5,7 +5,7 @@ class Node:
 		self.pre = None
 
 
-class doubly_linked_list:
+class DLL:
 	def __init__(self):
 		self.head = None
 
@@ -95,7 +95,7 @@ class doubly_linked_list:
 
 	def remove(self, element):
 		if self.head.data == element:
-			doubly_linked_list.pop_begin(self)
+			DLL.pop_begin(self)
 		if self.head is None:
 			raise Exception("The Linkedlist is empty")
 		current = self.head
@@ -113,7 +113,7 @@ class doubly_linked_list:
 		else:
 			current = self.head
 			while current is not None:
-				print(current.data, end=" --> ")
+				print(current.data, end=" <-> ")
 				current = current.next
 			print()
 
@@ -125,18 +125,6 @@ class doubly_linked_list:
 			while current.next:
 				current = current.next
 			while current:
-				print(current.data, end = " -->")
+				print(current.data, end = " <-> ")
 				current = current.pre
 			print()
-
-
-l1 = doubly_linked_list()
-l1.add_empty(10)
-l1.add_begin(0)
-l1.add_end(20)
-l1.add_after("x", 10)
-l1.add_befor("y", 10)
-# l1.pop_begin()
-# l1.remove(10)
-l1.display()
-l1.display_rev()
