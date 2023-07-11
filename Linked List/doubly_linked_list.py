@@ -90,6 +90,19 @@ class doubly_linked_list:
 			print(current.next.data)
 			current.next = None
 
+	def remove(self, element):
+		if self.head.data == element:
+			doubly_linked_list.pop_begin(self)
+		if self.head is None:
+			raise Exception("The Linkedlist is empty")
+		current = self.head
+		while current.next:
+			if current.next.data != element:
+				current = current.next
+			else:
+				current.next = current.next.next
+				print(current.data)
+
 
 	def display(self):
 		if self.head is None:
@@ -107,5 +120,5 @@ l1.add_begin(0)
 l1.add_end(20)
 l1.add_after("x", 10)
 l1.add_befor("y", 10)
-l1.pop_end()
+l1.remove(10)
 l1.display()
