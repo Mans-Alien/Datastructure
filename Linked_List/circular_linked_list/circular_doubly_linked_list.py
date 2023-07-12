@@ -41,6 +41,9 @@ class CDLL:
 			new_node.next = self.head
 			self.head.pre = new_node
 
+	def add_befor(self, data, element):
+		pass
+
 	def display(self):
 		if self.head is None:
 			print("The linkedlist is empty")
