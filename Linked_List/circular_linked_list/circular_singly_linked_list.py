@@ -62,20 +62,6 @@ class CSLL:
 				current.next = new_node
 				break
 
-	def add_after(self, data, element):
-	        new_node = Node(data)
-	        if self.head is None:
-	            raise Exception("The Linkedlist is empty")
-
-	        current = self.head
-	        while current:
-	            if current.data != element:
-	                current = current.next
-	            else:
-	                new_node.next = current.next
-	                current.next = new_node
-	                break
-
 	def pop_begin(self):
 		if self.head is None:
 			print("The linkedlist is empty")
@@ -127,14 +113,3 @@ class CSLL:
 				print(current.data, end=" -> ")
 				break
 		print()
-
-c1 = CSLL()
-c1.add_begin(10)
-c1.add_begin(0)
-c1.add_end(20)
-c1.add_befor("x", 10)
-c1.add_after("y", 10)
-# c1.pop_begin()
-# c1.pop_end()
-# c1.remove(0)
-c1.display()
