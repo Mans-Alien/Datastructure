@@ -80,6 +80,45 @@ class CDLL:
 					else:
 						current = current.next
 
+	def pop_end(self):
+		if self.head is None:
+			raise Exception("Unable to delete elements for an empty linked list")
+		else:
+			current = self.head.pre.pre 
+			current.next = self.head
+			self.head.pre = current
+
+	def pop_begin(self):
+		if self.head is None:
+			raise Exception("Unable to delete elements for an empty linked list")
+		else:
+			start = self.head
+			last = self.head.pre 
+			last.next = start.next
+			start.next.pre = last
+			self.head = start.next
+
+	def remove(self, element):
+		if self.head is None:
+			raise Exception("Unable to delete elements for an empty linked list")
+		else:
+			current = self.head
+			start = self.head
+			last = self.head.pre 
+			while True:
+				if start.data == element:
+					CDLL.pop_begin(self)
+					break
+				if last.data == element:
+					CDLL.pop_end(self)
+					break
+				if current.next.data == element:
+					current.next = current.next.next
+					current.next.pre = current
+					break
+				else:
+					current = current.next
+
 	def display(self):
 		if self.head is None:
 			print("The linkedlist is empty")
@@ -109,12 +148,3 @@ class CDLL:
 			print()
 
 
-c1 = CDLL()
-c1.add_empty(10)
-c1.add_begin(0)
-c1.add_end(20)
-c1.add_befor("x", 10)
-c1.add_after("y", 10)
-
-c1.display()
-c1.display_rev()
