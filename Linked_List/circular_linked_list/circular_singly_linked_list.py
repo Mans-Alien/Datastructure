@@ -103,6 +103,19 @@ class CSLL:
 				else:
 					current = current.next
 
+	def remove(self, element):
+		if self.head is None:
+			print("The linkedlist is empty")
+		elif self.head.data == element:
+			CSLL.pop_begin(self)
+		else:
+			current = self.head
+			while True:
+				if current.next.data == element:
+					current.next = current.next.next
+					break
+				else:
+					current = current.next
 
 	def display(self):
 		current = self.head
@@ -121,6 +134,7 @@ c1.add_begin(0)
 c1.add_end(20)
 c1.add_befor("x", 10)
 c1.add_after("y", 10)
-c1.pop_begin()
-c1.pop_end()
+# c1.pop_begin()
+# c1.pop_end()
+# c1.remove(0)
 c1.display()
